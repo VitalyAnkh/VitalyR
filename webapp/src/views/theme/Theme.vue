@@ -6,7 +6,7 @@
                     <div id="theme">
                         <div id="title">
                             <h2> {{ theme.title }} </h2> 
-                            <span id="info"><a :href="'/a/home/' + theme_category_name">{{ theme_category_name_cn }}</a></span> • 
+                            <span id="info"><a :href="'/a/home/' + theme_category_name">{{ theme_category_name }}</a></span> • 
                             <span id="info"><a :href="'/a/user/' + theme_user.id">{{ theme_user.username }}</a></span> •   
                             <span id="info">{{ theme_rtime }}</span>  
                         </div>
@@ -14,7 +14,7 @@
                     </div>
                     <hr>
                     <div id="comment">
-                        <div id="count">评论 &nbsp; {{ theme.comment_count }} </div>
+                        <div id="count">Comment &nbsp; {{ theme.comment_count }} </div>
                         <div v-for="(comment, index) in theme_comments" :key="index">
                             <div id="detail">
                                 <div id="infos">
@@ -29,7 +29,7 @@
                     <hr>
                     <div id="reply" v-if="signin_user">
                         <div id="messagenote">
-                            <p><strong>注意:</strong>发消息格式:[<strong>@人名 内容</strong>]中间有一空格,不然发不出去或收不到</p>
+                            <p><strong>Note: </strong>message fmt:[<strong>@username content</strong>]A Space between username and content</p>
                         </div>
                         <div id="editor">
                             <mavon-editor name="content" v-model="Content" :ishljs = "true" style="height: 100%;" :toolbars="set"></mavon-editor>
@@ -41,8 +41,8 @@
                                         border :1px solid #a39c9c;" type="submit" id="submit" @click="comment">评论
                         </button>
                     </div>  
-                    <div v-else style="margin: 10px;">请先登录再发表评论.
-                        <a href="/a/signin" style="background-color:aqua;">登录</a>
+                    <div v-else style="margin: 10px;">Please login fisrt then comment.
+                        <a href="/a/signin" style="background-color:aqua;">Login</a>
                     </div>    
                 </div>
                 <side></side>
@@ -74,36 +74,36 @@ export default {
             theme_comments: '',
             signin_user: '',
             set:{
-                bold: true, // 粗体
-                italic: true, // 斜体
-                header: true, // 标题
-                quote: true, // 引用
-                ul: true, // 无序列表
-                link: true, // 链接
+                bold: true, 
+                italic: true, 
+                header: true, 
+                quote: true, 
+                ul: true, 
+                link: true, 
                 code: true, // code
-                table: true, // 表格
-                trash: true, // 清空
-                fullscreen: true, // 全屏编辑
-                htmlcode: true, // 展示html源码
-                preview: true, // 预览
-                help: true, // 帮助
+                table: true, 
+                trash: true, 
+                fullscreen: true, 
+                htmlcode: true, 
+                preview: true, 
+                help: true, 
                 
-                underline: false, // 下划线
-                strikethrough: false, // 中划线
-                mark: false, // 标记
-                ol: false, // 有序列表
-                 alignleft: false, // 左对齐
-                aligncenter: false, // 居中
-                alignright: false, // 右对齐
-                superscript: false, // 上角标
-                subscript: false, // 下角标
-                undo: false, // 上一步
-                redo: false, // 下一步
-                imagelink: false, // 图片链接
-                readmodel: false, // 沉浸式阅读
-                save: false, // 保存（触发events中的save事件）
-                navigation: false, // 导航目录
-                subfield: false, // 单双栏模式
+                underline: false, 
+                strikethrough: false, 
+                mark: false, 
+                ol: false, 
+                 alignleft: false, 
+                aligncenter: false, 
+                alignright: false, 
+                superscript: false, 
+                subscript: false, 
+                undo: false, 
+                redo: false, 
+                imagelink: false, 
+                readmodel: false, 
+                save: false, 
+                navigation: false, 
+                subfield: false, 
             }
         }
     },
@@ -138,7 +138,7 @@ export default {
             comment: comment
         }
         if(comment == ''){
-                alert("评论内容不能为空")
+                alert("comment can't be null")
                 return
         }else{
             fetch(URLprefix + 'api/theme/' + this.$route.params.id, {

@@ -3,7 +3,7 @@
         <main>
             <div id="container">
                 <div id="center">
-                    <div id="new-title"><p>新主题</p></div>
+                    <div id="new-title"><p>Post</p></div>
                     <form id="form" >
                             <div id="topic-group">
                                 <span  id="category">
@@ -26,7 +26,7 @@
                                 <mavon-editor name="content" v-model="Content" :ishljs = "true" style="height: 100%;" :toolbars="set"></mavon-editor>
                             </div>
                             <div id="new">
-                                    <button type="submit" id="submit" @click="post" >发布</button>
+                                    <button type="submit" id="submit" @click="post" >Post</button>
                             </div>
                     </form>
                 </div>
@@ -57,36 +57,36 @@ export default {
             Title: '',
             Content: '',
             set:{
-                bold: true, // 粗体
-                italic: true, // 斜体
-                header: true, // 标题
-                quote: true, // 引用
-                ul: true, // 无序列表
-                link: true, // 链接
+                bold: true, 
+                italic: true, 
+                header: true, 
+                quote: true, 
+                ul: true, 
+                link: true, 
                 code: true, // code
-                table: true, // 表格
-                trash: true, // 清空
-                fullscreen: true, // 全屏编辑
-                htmlcode: true, // 展示html源码
-                preview: true, // 预览
-                help: true, // 帮助
+                table: true, 
+                trash: true, 
+                fullscreen: true, 
+                htmlcode: true, 
+                preview: true, 
+                help: true, 
                 
-                underline: false, // 下划线
-                strikethrough: false, // 中划线
-                mark: false, // 标记
-                ol: false, // 有序列表
-                 alignleft: false, // 左对齐
-                aligncenter: false, // 居中
-                alignright: false, // 右对齐
-                superscript: false, // 上角标
-                subscript: false, // 下角标
-                undo: false, // 上一步
-                redo: false, // 下一步
-                imagelink: false, // 图片链接
-                readmodel: false, // 沉浸式阅读
-                save: false, // 保存（触发events中的save事件）
-                navigation: false, // 导航目录
-                subfield: false, // 单双栏模式
+                underline: false, 
+                strikethrough: false, 
+                mark: false, 
+                ol: false, 
+                 alignleft: false, 
+                aligncenter: false, 
+                alignright: false, 
+                superscript: false, 
+                subscript: false, 
+                undo: false, 
+                redo: false, 
+                imagelink: false, 
+                readmodel: false, 
+                save: false, 
+                navigation: false, 
+                subfield: false, 
             }
         }
     },
@@ -100,9 +100,9 @@ export default {
                     this.categorys = json.categorys
                     let category_names_admin = []
                     let category_names = []
-                    this.categorys.map((item) => category_names_admin.push(item.category_name_cn))
+                    this.categorys.map((item) => category_names_admin.push(item.category_name))
                     this.category_names_admin = category_names_admin
-                    category_names_admin.filter((item) => { if (item != '官方') category_names.push(item)})
+                    category_names_admin.filter((item) => { if (item != 'Office') category_names.push(item)})
                     this.category_names = category_names
               })
               .catch((e) => {
@@ -116,13 +116,13 @@ export default {
             let content = this.Content
             let user_id = JSON.parse(localStorage.getItem('signin_user')).id
             if(category_name == ''){
-                alert("主题分类不能为空, 请选择一个分类")
+                alert("category_name can't be null")
                 return
             }else if(title == ''){
-                alert("标题不能为空")
+                alert("title can't be null")
                 return
             }else if(content == ''){
-                alert("内容不能为空")
+                alert("content can't be null")
                 return
             }else{
                 let data = { 
@@ -159,14 +159,14 @@ export default {
     width: 100%;
     line-height: 33px;
     border :1px solid #CAC1C1;
-    background-color:#f5fdfa;
+    background-color:#fdffff;
 }
 #center form #topic-group {
    margin: 11px 0 11px 0;
 }
 #center form #topic-group #category select {
     background-color: #FFFFFF;
-    border :1px solid #CAC1C1; /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+    border :1px solid #CAC1C1; 
     border: solid 1px #CAC1C1;
     padding-left: 9px;
 }

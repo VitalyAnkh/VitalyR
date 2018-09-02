@@ -5,7 +5,7 @@
                 <div id="support">
                     <div id="ouisrc">
                         <span style="font-size: 1.6rem;">OUISRC : </span>
-                        <span style="font-size: 1.2rem;">以开发者为中心的全栈技术社区</span>
+                        <span style="font-size: 1.2rem;">A fullstack community for developers</span>
                     </div><br>
                 </div>
             </div>

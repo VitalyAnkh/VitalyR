@@ -3,11 +3,11 @@
       <div id="show"><img src="../../../static/imgs/ouisrc.jpg" /></div>
       <div id="title">
           <ul>
-              <li><a :href="'/a/user/' + $route.params.id" >主题</a></li>
-              <li><a :href="'/a/user/' + $route.params.id + '/comment'" >评论</a></li>
-              <li><a :href="'/a/user/' + $route.params.id + '/save'" >收藏</a></li>
-              <li v-if="(messages_count != 0)&&(this.$route.params.id == signin_user.id)"><a :href="'/a/user/' + $route.params.id + '/message'" id="message-title">消息</a>&emsp;<button id="readall" @click="readall">全部阅读</button></li>
-              <li v-else-if="(messages_count == 0)&&(this.$route.params.id == signin_user.id)"><a :href="'/a/user/' + $route.params.id + '/message'" id="message-title">消息</a></li>
+              <li><a :href="'/a/user/' + $route.params.id" >Theme</a></li>
+              <li><a :href="'/a/user/' + $route.params.id + '/comment'" >Comment</a></li>
+              <li><a :href="'/a/user/' + $route.params.id + '/save'" >Save</a></li>
+              <li v-if="(messages_count != 0)&&(this.$route.params.id == signin_user.id)"><a :href="'/a/user/' + $route.params.id + '/message'" id="message-title">Message</a>&emsp;<button id="readall" @click="readall">AllRead</button></li>
+              <li v-else-if="(messages_count == 0)&&(this.$route.params.id == signin_user.id)"><a :href="'/a/user/' + $route.params.id + '/message'" id="message-title">Message</a></li>
               <li v-else><a :href="'/a/user/' + $route.params.id + '/message'" id="message-title"></a></li>
           </ul>
       </div>
@@ -17,10 +17,10 @@
                 <div id="items" v-for="(message, index) in messages" :key="index">
                             <div id="item">
                                 <div id="infos">
-                                    <span id="info"><a :href="'/a/user/' + message.from_user_id">用户{{ message.from_user_id }}</a></span>&emsp;
-                                    <span id="info"><a :href="'/a/undefined' + '/theme/' + message.theme_id">在主题{{ message.theme_id }}回复你</a></span>&emsp;
+                                    <span id="info"><a :href="'/a/user/' + message.from_user_id">User{{ message.from_user_id }}</a></span>&emsp;
+                                    <span id="info"><a :href="'/a/undefined' + '/theme/' + message.theme_id">AtTheme{{ message.theme_id }}reply</a></span>&emsp;
                                     <span id="info"> {{ message.created_at }} </span>&emsp;
-                                    <span v-if="message.message_status == 0" id="messagenew">新</span>
+                                    <span v-if="message.message_status == 0" id="messagenew">New</span>
                                 </div> 
                                 <div id="item-title">
                                   <a :href="'/a/undefined' + '/theme/' + message.theme_id + '#comment'" title="theme.title"> {{ message.content }} </a>

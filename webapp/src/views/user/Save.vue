@@ -3,10 +3,10 @@
       <div id="show"><img src="../../../static/imgs/ouisrc.jpg" /></div>
       <div id="title">
           <ul>
-              <li><a :href="'/a/user/' + $route.params.id" id="theme-title">主题</a></li>
-              <li><a :href="'/a/user/' + $route.params.id + '/comment'" >评论</a></li>
-              <li><a :href="'/a/user/' + $route.params.id + '/save'" id="save-title" >收藏</a></li>
-              <li v-if="this.$route.params.id == signin_user.id"><a :href="'/a/user/' + $route.params.id + '/message'" id="message-title">消息</a></li>
+              <li><a :href="'/a/user/' + $route.params.id" id="theme-title">Theme</a></li>
+              <li><a :href="'/a/user/' + $route.params.id + '/comment'" >Comment</a></li>
+              <li><a :href="'/a/user/' + $route.params.id + '/save'" id="save-title" >Save</a></li>
+              <li v-if="this.$route.params.id == signin_user.id"><a :href="'/a/user/' + $route.params.id + '/message'" id="message-title">Message</a></li>
               <li v-else><a :href="'/a/user/' + $route.params.id + '/message'" id="message-title"></a></li>
           </ul>
       </div>
@@ -17,8 +17,8 @@
                             <div id="item">
                                 <div id="infos">
                                     <!-- <span id="info">{{ theme.category_name }}</span> -->
-                                    <span id="info"><a :href="'/a/user/' + theme.user_id">用户{{ theme.user_id }}</a></span>&emsp;
-                                    <span id="info"><a :href="'/a/undefined' + '/theme/' + theme.id">主题{{ theme.id }}</a></span>&emsp;
+                                    <span id="info"><a :href="'/a/user/' + theme.user_id">User{{ theme.user_id }}</a></span>&emsp;
+                                    <span id="info"><a :href="'/a/undefined' + '/theme/' + theme.id">Theme{{ theme.id }}</a></span>&emsp;
                                     <span id="info"><a :href="'/a/undefined' + '/theme/' + theme.id">{{ theme.comment_count }}</a></span>&emsp;
                                     <span id="info">{{ theme.view_count }}</span>&emsp;
                                     <span id="info"> {{ theme.created_at }} </span>

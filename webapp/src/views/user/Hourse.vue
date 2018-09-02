@@ -3,10 +3,10 @@
       <div id="show"><img src="../../../static/imgs/ouisrc.jpg" /></div>
       <div id="title">
           <ul>
-              <li><a :href="'/a/user/' + $route.params.id" id="theme-title">主题</a></li>
-              <li><a :href="'/a/user/' + $route.params.id + '/comment'" >评论</a></li>
-              <li><a :href="'/a/user/' + $route.params.id + '/save'" >收藏</a></li>
-              <li v-if="this.$route.params.id == signin_user.id"><a :href="'/a/user/' + $route.params.id + '/message'" id="message-title">消息</a></li>
+              <li><a :href="'/a/user/' + $route.params.id" id="theme-title">Theme</a></li>
+              <li><a :href="'/a/user/' + $route.params.id + '/comment'" >Comment</a></li>
+              <li><a :href="'/a/user/' + $route.params.id + '/save'" >Save</a></li>
+              <li v-if="this.$route.params.id == signin_user.id"><a :href="'/a/user/' + $route.params.id + '/message'" id="message-title">Message</a></li>
               <li v-else><a :href="'/a/user/' + $route.params.id + '/message'" id="message-title"></a></li>
           </ul>
       </div>
@@ -30,21 +30,21 @@
             </div>
             <div id="aside">
                 <div id="right">
-                    <p><strong>用户名:{{ hourse_user.username }}</strong></p>
-                    <p v-if="current_user != ''"><strong>邮箱:{{ current_user.email }}</strong></p>
-                    <p>注册时间:{{ hourse_user.created_at }}</p>
-                    <p>注册排名:第{{ hourse_user.id }}位</p>
+                    <p><strong>Username:{{ hourse_user.username }}</strong></p>
+                    <p v-if="current_user != ''"><strong>Email:{{ current_user.email }}</strong></p>
+                    <p>SignupTime:{{ hourse_user.created_at }}</p>
+                    <p>SignupIndex:{{ hourse_user.id }}</p>
                     
                     <div v-if="current_user != ''" id="userself">
-                        <button id="submit"  @click="update">账号更新</button><br/>
-                        <!--<button id="submit"  @click="deleteme">账号删除</button><br/>-->
+                        <button id="submit"  @click="update">AccountUpdate</button><br/>
+                        <button id="submit"  @click="deleteme">AccountDelete</button><br/>
 
                         <div id="update" v-if="userupdate == true">
-                            <p>账号更新</p> 
-                                <input type="email" name="newmail" placeholder="新邮箱" v-model="Newmail"  required /><br/>
-                                <input type="password" name="newpassword" placeholder="新密码" v-model="Newpassword"  required/><br/>
-                                <input type="password" name="confirm_newpassword" placeholder="确认新密码" v-model="ConfirmNewpassword"  required/><br/>
-                                <button id="submit" @click="submitnow">更新</button>
+                            <p>AccountUpdate</p> 
+                                <input type="email" name="newmail" placeholder="Newmail" v-model="Newmail"  required /><br/>
+                                <input type="password" name="newpassword" placeholder="Newpassword" v-model="Newpassword"  required/><br/>
+                                <input type="password" name="confirm_newpassword" placeholder="ConfirmNewpassword" v-model="ConfirmNewpassword"  required/><br/>
+                                <button id="submit" @click="submitnow">Update</button>
                         </div>
                     </div>
                 </div>

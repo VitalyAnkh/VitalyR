@@ -4,35 +4,35 @@
         <div id="container">
           <div id="center">
               <div id="header">
-                <li  ><a href="/a/home/best" >最美</a></li>
-                <li  ><a href="/" >全部</a></li>
+                <li  ><a href="/a/home/best" >Best</a></li>
+                <li  ><a href="/" >All</a></li>
                 <span v-for="(category, index) in categorys" :key="index">
                     <li v-if="category.category_name != 'office'">
-                      <a :href="'/a/home/' + category.category_name" >{{ category.category_name_cn }}</a>
+                      <a :href="'/a/home/' + category.category_name" >{{ category.category_name }}</a>
                     </li>
                 </span>
-                <li  ><a href="/a/home/care" >未回复</a></li>
+                <li  ><a href="/a/home/care" >Noreply</a></li>
               </div>
               <div id="content">
                       <div id="items" v-for="(theme, index) in theme_list" :key="index">
-                            <div id="office" v-if="theme.category_name === 'office'">
+                            <div id="office" v-if="theme.category_name === 'Office'">
                                 <div id="office-title">
                                   <a :href="'/a/'+ theme.category_name + '/theme/' + theme.id" title="theme.title"> {{ theme.title }} </a>
                                 </div>
                                 <div id="detail">
-                                    <span id="info" class="col-name">{{ theme.category_name_cn }}</span>
+                                    <span id="info" class="col-name">{{ theme.category_name }}</span>
                                     <span id="info"><a :href="'/a/user/' + theme.user_id">{{ theme.username }}</a></span>
                                     <span id="info"><a :href="'/a/'+ theme.category_name + '/theme/' + theme.id">{{ theme.comment_count }}</a></span>
                                     <span id="info">{{ theme.view_count }}</span>
                                     <span id="info"> {{ theme.rtime }} </span>
                                 </div> 
                             </div>
-                            <div id="item" v-if="theme.category_name !== 'office'">
+                            <div id="item" v-if="theme.category_name !== 'Office'">
                                 <div id="item-title">
                                   <a :href="'/a/'+ theme.category_name + '/theme/' + theme.id" title="theme.title"> {{ theme.title }} </a>
                                 </div>
                                 <div id="detail">
-                                    <span id="info" class="col-name">{{ theme.category_name_cn }}</span>
+                                    <span id="info" class="col-name">{{ theme.category_name }}</span>
                                     <span id="info"><a :href="'/a/user/' + theme.user_id">{{ theme.username }}</a></span>
                                     <span id="info"><a :href="'/a/'+ theme.category_name + '/theme/' + theme.id">{{ theme.comment_count }}</a></span>
                                     <span id="info">{{ theme.view_count }}</span>
@@ -61,9 +61,9 @@
           <div id="rightside">
               <div id="bestside">
                   <div id="show">
-                    <h3>最美的人</h3>
+                    <h3>BestPerson</h3>
                     <div id="title">
-                      <li><h5>最近最美</h5></li><li>&emsp;<strong>|</strong>&emsp;</li><li><h5>一直最美</h5></li>
+                      <li><h5>NewBest</h5></li><li>&emsp;<strong>|</strong>&emsp;</li><li><h5>AllBest</h5></li>
                     </div>
                     <ul>
                       <div id="bestperson" v-for="(new_person,index) in new_best" :key="index">
@@ -72,13 +72,13 @@
                     </ul>
                 </div>
               </div>
-              <div id="rusterinfo">
-                <h3>统计信息</h3>
-                  <li>会员:{{ruster_info[0]}}</li>
-                  <li>主题:{{ruster_info[1]}}</li>
-                  <li>博客:{{ruster_info[2]}}</li>
-                  <li>评论:{{ruster_info[3]}}</li>
-                  <li>收藏:{{ruster_info[4]}}</li>
+              <div id="ouisrc_info">
+                <h3>OUISRC</h3>
+                  <li>User:{{ouisrc_info[0]}}</li>
+                  <li>Theme:{{ouisrc_info[1]}}</li>
+                  <li>Blog:{{ouisrc_info[2]}}</li>
+                  <li>Comment:{{ouisrc_info[3]}}</li>
+                  <li>Save:{{ouisrc_info[4]}}</li>
               </div>
               <side></side>
           </div>
@@ -109,7 +109,7 @@ export default {
       half_count:'',
       new_best: '',
       all_best: '',
-      ruster_info: ''
+      ouisrc_info: ''
     }
   },
   mounted: function() {
@@ -144,13 +144,13 @@ export default {
                 console.log(e)
               })    
 
-              fetch(URLprefix + 'api/ruster/info',{
+              fetch(URLprefix + 'api/ouisrc/info',{
                   method: 'GET',
                   mode: 'cors'
               }).then(response => response.json())
               .then(json => {
-                  json.ruster_info[0] = 90 + json.ruster_info[0]
-                   this.ruster_info = json.ruster_info
+                  json.ouisrc_info[0] = json.ouisrc_info[0]
+                   this.ouisrc_info = json.ouisrc_info
               })
               .catch((e) => {
                 console.log(e)
@@ -165,7 +165,7 @@ export default {
   background-color: #FFFFFF;
 }
 #header {
-  padding: 0.8rem 0.2rem;
+  padding: 0.8rem 0.3rem;
   box-shadow: 0 0 3px rgba(0,0,0,0.1), 0 -1px 1px rgba(0,0,0,0.1);
 }
 #header li {
@@ -173,6 +173,7 @@ export default {
   color: #0d8575;
   font-weight: bold;
   margin-right: 1rem;
+  font-size: 1.2rem;
 }
 #center #items #office, #center #items #item {
   border-bottom: 1px solid #f3e1f8;
@@ -185,7 +186,7 @@ export default {
   color: #0541af;
 }
 #center #content #items #detail {
-  margin-top: 1vh;
+  margin-top: 0.3rem;
 }
 #center #items #detail .col-name {
     color: #f16bf1;
@@ -195,7 +196,7 @@ export default {
 }
 #center #content #detail #info {
   padding-right: 0.8rem;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
 }
 #center #pagination li {
   display: inline; 
@@ -231,17 +232,21 @@ export default {
     font-size: 1.1rem;
     color: green;
 }
-#bestside, #rusterinfo {
+#bestside, #ouisrc_info {
   padding: 0.1rem;
   background-color: #FFFFFF;
   box-shadow: 0 0 3px rgba(0,0,0,0.1), 0 -1px 1px rgba(0,0,0,0.1);
   margin-bottom: 0.5rem;
 }
-#container #rightside #rusterinfo  {
+#container #rightside #ouisrc_info  {
   text-align: center;
 }
-#container #rightside #rusterinfo h3 {
+#container #rightside #ouisrc_info h3 {
+  padding: 0.5rem 0;
   border-bottom: 2px solid #acc;
+}
+#container #rightside #ouisrc_info li {
+  padding-top: 0.4rem;
 }
 @media only screen and (max-width: 600px) {
     main{
@@ -249,7 +254,7 @@ export default {
         width: 97%;
     }
     #center #items #office, #center #items #item {
-      padding: 1vh 1vw;
+        padding: 0.3rem;
     }
     #center #items #office #detail #more, #center #items #item #detail #more {
       display: none;
@@ -276,7 +281,7 @@ export default {
         flex: 1;
     }
     #center #items #office, #center #items #item {
-      padding: 1vh 0.8vw;
+        padding: 0.4rem;
     }
 }
 @media only screen and (min-width: 850px) {
@@ -297,7 +302,7 @@ export default {
         flex: 1;
     }
     #center #items #office, #center #items #item {
-      padding: 1vh 0.5vw;
+      padding: 0.4rem;
     }
     #center #items #office #office-title, #center #items #item #item-title {
       font-size: 1.1rem;

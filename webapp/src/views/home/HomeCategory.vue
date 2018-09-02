@@ -4,14 +4,14 @@
         <div id="container">
           <div id="center">
               <div id="header">
-                <li  ><a href="/a/home/best" >最美</a></li>
-                <li  ><a href="/" >全部</a></li>
+                <li  ><a href="/a/home/best" >Best</a></li>
+                <li  ><a href="/" >All</a></li>
                 <span v-for="(category, index) in categorys" :key="index">
                     <li v-if="category.category_name != 'office'">
-                      <a :href="'/a/home/' + category.category_name" >{{ category.category_name_cn }}</a>
+                      <a :href="'/a/home/' + category.category_name" >{{ category.category_name }}</a>
                     </li>
                 </span>
-                <li  ><a href="/a/home/care" >未回复</a></li>
+                <li  ><a href="/a/home/care" >Noreply</a></li>
               </div>
               <div id="content">
                       <div id="items" v-for="(theme, index) in theme_list" :key="index">
@@ -20,7 +20,7 @@
                                   <a :href="'/a/'+ theme.category_name + '/theme/' + theme.id" title="theme.title"> {{ theme.title }} </a>
                                 </div>
                                 <div id="detail">
-                                    <span id="info" class="col-name">{{ theme.category_name_cn }}</span>
+                                    <span id="info" class="col-name">{{ theme.category_name }}</span>
                                     <span id="info"><a :href="'/a/user/' + theme.user_id">{{ theme.username }}</a></span>
                                     <span id="info"><a :href="'/a/'+ theme.category_name + '/theme/' + theme.id">{{ theme.comment_count }}</a></span>
                                     <span id="info">{{ theme.view_count }}</span>

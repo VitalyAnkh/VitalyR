@@ -2,15 +2,15 @@
  <div id="signup">
    <div id="content">
         <div id="title">    
-            <router-link to="/a/signin">登录</router-link>&emsp;|&emsp;
-            <router-link to="/a/signup">注册</router-link> 
+            <router-link to="/a/signin">Signin</router-link>&emsp;|&emsp;
+            <router-link to="/a/signup">Signup</router-link> 
         </div> 
-          <input type="text" id="username" name="username" placeholder="用户名：11位以内，字符,数字组成" v-model="Username"  required />
-          <input type="email" id="email" name="email" placeholder="邮箱：格式：xxx@xxx.xx" v-model="Email"  required />
-          <input type="password" name="password" placeholder="密码：11位以内，字符,数字组成" v-model="Password"  required/>
-          <input type="password" name="confirm_password" placeholder="确认密码" v-model="ConfirmPassword"  required/><br/>
+          <input type="text" id="username" name="username" placeholder="Username：within 11 bit，char/number" v-model="Username"  required />
+          <input type="email" id="email" name="email" placeholder="Email：Fmt：xxx@xxx.xx" v-model="Email"  required />
+          <input type="password" name="password" placeholder="Password：within 11 bit，char/number" v-model="Password"  required/>
+          <input type="password" name="confirm_password" placeholder="ConfirmPassword" v-model="ConfirmPassword"  required/><br/>
           
-          <input type="submit" id="submit" @click="signup" value="注册"/>
+          <input type="submit" id="submit" @click="signup" value="signup"/>
     </div>
   </div>
 </template>
@@ -46,19 +46,19 @@ export default {
       }
       let getemail = document.getElementById("email")
       if (username.length == ''){
-          alert("用户名不能为空.")
+          alert("username can't be null")
           return
       }else if (username.length > 11){
-          alert("用户名：11位以内，字符,数字组成.")
+          alert("Username：within 11 bit，char/number")
           return
       }else if(!getemail.checkValidity()) {
-          alert("请输入正确的Email地址.")
+          alert("Please input correct Email format")
           return
       }else if(password == '') {
-          alert("密码不能为空，请重新输入")
+          alert("password can't be null")
           return
       }else if(password != confirm_password) {
-          alert("两次密码输入不同，请重新输入")
+          alert("password isn't same as confirm_password")
           return
       }else{
           fetch(URLprefix + 'user/signup', {

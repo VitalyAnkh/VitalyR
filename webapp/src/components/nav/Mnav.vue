@@ -7,32 +7,28 @@
           <a id="front" href="/"><img src="../../../static/imgs/ouisrc.jpg"/></a>
           <a id="name" href="/">OUISRC</a>
           <span id="dlnav">
-            <a id="tail" href="#" target="_blank">文档</a>
+            <a id="tail" href="#" target="_blank">Docs</a>
             <!-- <a id="tail" href="">search</a> -->
           </span>
         </div>
         <label ><a href="#" id="menu">M</a></label>
       </div>
       <div id="rnav">
-          <div id="mlnav"> 
-            <!-- <a id="tail" href="/">首页</a> -->
-            <!-- <a id="tail" href="">search</a> -->
-          </div>
           <li v-if="signin_user.username"> 
             <a v-if="messages_count != 0" :href="'/a/user/' + signin_user.id + '/message'" id="mnumber">{{messages_count}}</a>
           </li>
           <li v-if="signin_user.username == 'admin'"> 
-            <a href="/a/create" title="create">新建</a>
+            <a href="/a/create" title="create">Create</a>
           </li>
           <li v-if="signin_user.username"> 
-            <a href="/a/post" title="post">发布</a>
+            <a href="/a/post" title="post">Post</a>
             <a :href="'/a/user/' + signin_user.id" title="signin_userusername">{{signin_user.username}}</a>
-            <a href="/a/signin" title="Logout" @click="logout">退出</a>
+            <a href="/a/signin" title="Logout" @click="logout">Logout</a>
             <a href="/a/more" title="signin">More</a>
           </li>
           <li v-else > 
-            <a href="/a/signin" title="signin">登录</a>
-            <a href="/a/signup" title="signin">注册</a>
+            <a href="/a/signin" title="signin">Signin</a>
+            <a href="/a/signup" title="signin">Signup</a>
             <a href="/a/more" title="signin">More</a>
           </li>
       </div> 
@@ -110,7 +106,7 @@ a {
 #lnav {
     position: fixed;
     width: 100%;
-    line-height: 60px;
+    line-height: 50px;
     zoom:1;
     display: flex;
     background-color: #ffffff;
@@ -122,14 +118,12 @@ a {
  #lnav #left #front img {
     width: 2.5rem;
     height: 2.5rem;
-    margin-bottom: 0.7vh;
     vertical-align:middle;
   }
   #lnav #left #name {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin: auto 1vw;
     font-weight: bold;
-    color: var(--grey);
     vertical-align:middle;
   }
   #lnav label {
@@ -169,6 +163,9 @@ a {
       display: block;
       overflow: hidden;
     }
+    #rnav li #mnumber { 
+      padding: 1vh 3vw;
+    }
     #rnav li a, #rnav #mlnav a {
       display:block;
       font-size: 1.1rem;
@@ -195,7 +192,7 @@ a {
     #rnav {
       position: fixed;
       right: 0;
-      line-height: 60px;
+      line-height: 50px;
       padding-right: 3vw;
     }
     #rnav li {
@@ -223,7 +220,7 @@ a {
     #rnav {
       position: fixed;
       right: 0;
-      line-height: 60px;
+      line-height: 50px;
       padding-right: 10vw;
     }
     #rnav li {

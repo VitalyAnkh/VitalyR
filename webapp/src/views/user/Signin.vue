@@ -2,17 +2,17 @@
   <div id="signin">
       <div id="content">
           <div id="title">    
-            <router-link to="/a/signin">登录</router-link>&emsp;|&emsp;
-            <router-link to="/a/signup">注册</router-link> 
+            <router-link to="/a/signin">Signin</router-link>&emsp;|&emsp;
+            <router-link to="/a/signup">Signup</router-link> 
           </div>
-            <input type="text" name="username" placeholder="用户名" v-model="Username" />
-            <input type="password" name="password" placeholder="密码" v-model="Password" /><br/>
+            <input type="text" name="username" placeholder="Username" v-model="Username" />
+            <input type="password" name="password" placeholder="Password" v-model="Password" /><br/>
           <div>
               <div id="v_container" style="height: 44px;"></div>
-              <input type="text" id="code_input" value="" placeholder="请输入上方验证码" style="width: 70%;"/>
-              <span><button id="verify" >点击验证</button></span>
+              <input type="text" id="code_input" value="" placeholder="Enter the verification code" style="width: 70%;"/>
+              <span><button id="verify" >ClickVerify</button></span>
           </div>
-          <button id="submit" @click="signin">登录</button><br/>
+          <button id="submit" @click="signin">Signin</button><br/>
       </div>
   </div>
 </template>
@@ -39,10 +39,10 @@ export default {
       var res = verifyCode.validate(document.getElementById("code_input").value);
       if (res) {
         let verify = document.getElementById("verify")
-        verify.innerHTML = "验证成功"
+        verify.innerHTML = "VerifyPass"
       } else {
         let verify = document.getElementById("verify")
-        verify.innerHTML = "重新验证"
+        verify.innerHTML = "VerifyAgain"
       }
     }
   },
@@ -55,7 +55,7 @@ export default {
           password: password,
           code: Number.parseInt(0),
       }
-      if (document.getElementById("verify").innerHTML == "验证成功") {
+      if (document.getElementById("verify").innerHTML == "VerifyPass") {
             fetch(URLprefix + 'user/signin', {
                   body: JSON.stringify(data), 
                   headers: {
@@ -79,7 +79,7 @@ export default {
                 console.log(e)
               })
       }else{
-          alert("请先成功通过验证码再登录.")
+          alert("Please VerifyPass the verification code then Signin")
       }
               
     }

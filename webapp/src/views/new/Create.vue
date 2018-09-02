@@ -4,10 +4,10 @@
             <div id="container">
                 <div id="center">
                     <div id="content">
-                        <div id="top"><p>新模块</p></div><br>
-                        <input type="text" name="category_name_cn" v-model="CategoryNmaeCN" placeholder="中文表示"><br><br>
-                        <input type="text" name="category_name" v-model="CategoryNmae" placeholder="英文表示"><br><br>
-                        <button type="submit" id="submit" @click="create" ><span class="tip">新建</span></button>
+                        <div id="top"><p>Create</p></div><br>
+                        <input type="text" name="category_name_cn" v-model="CategoryNmaeCN" placeholder="cn name"><br><br>
+                        <input type="text" name="category_name" v-model="CategoryNmae" placeholder="es name"><br><br>
+                        <button type="submit" id="submit" @click="create" ><span class="tip">Create</span></button>
                     </div>
                 </div>
                 <side></side>
@@ -37,10 +37,10 @@ export default {
             let category_name_cn = this.CategoryNmaeCN
             let user_id = JSON.parse(localStorage.getItem('signin_user')).id
            if(category_name_cn == ''){
-                alert("分类中文名不能为空")
+                alert("category_name_cn can't be null")
                 return
             }else if(category_name == ''){
-                alert("分类英文名不能为空")
+                alert("category_name can't be null")
                 return
             }else{
                 let data = { 
@@ -74,12 +74,12 @@ export default {
 }
 #top {
     line-height: 33px;
-    background-color:#f5fdfa;
+    background-color:#fdffff;
     border :1px solid #CAC1C1;
 }
 
 #topic #category #category-control {
-    border :1px solid #CAC1C1; /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+    border :1px solid #CAC1C1; 
     border: solid 1px #CAC1C1;
     text-align: center;
 }

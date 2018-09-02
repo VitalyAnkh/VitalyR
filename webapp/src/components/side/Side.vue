@@ -2,12 +2,14 @@
     <div id="side">
         <main>
             <div id="title">
-                <span style="font-size: 1.5rem;">OUISRC</span>
-                <span style="font-size: 1.2rem;">全栈社区</span>
+                <span style="font-size: 1.3rem;">OUISRC </span>
+                <span style="font-size: 1.1rem;">Community</span>
             </div>
             <div id="line"></div>
-            <p><span style="color:fuchsia;font-weight:bold;">支持OUISRC：</span>这是社区项目,希望大家共同参与,谢谢！</span></p>
-            <p>本站<a href="https://github.com/OUISRC/kary" target="_blank"><strong>源码</strong></a>开源.</p>
+            <div id="info">
+                <p><span style="color:fuchsia;font-weight:bold;">OUISRC </span>is a community project,welcome to help Thanks！</p>
+                <p>The<a href="https://github.com/OUISRC/kary" target="_blank"><strong> Code </strong></a>Open Source</p>
+            </div>
         </main>
     </div>
 </template>
@@ -34,6 +36,9 @@ main #title {
 }
 main #line {
     border: 1px solid #acc;
+}
+main #info {
+    padding: 0.5rem 0;
 }
 main p {
     margin: 0 auto;
