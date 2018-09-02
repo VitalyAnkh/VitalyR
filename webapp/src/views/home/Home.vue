@@ -93,13 +93,11 @@
 import URLprefix from '../../config'
 import Side from '../../components/side/Side'
 import Gotop from '../../components/gotop/Gotop'
-import BestSide from '../../components/bestside/BestSide'
 export default {
   name: 'home',
   components: {
     "side": Side,
-    "gotop": Gotop,
-    "bestside": BestSide
+    "gotop": Gotop
   },
   data: function() {
     return {

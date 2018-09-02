@@ -50,6 +50,8 @@ $ cargo run --release
 
 then open broswer 'http://localhost:8000/'
 
+<img alt="Home" height="500" src="https://raw.githubusercontent.com/OUISRC/kary/master/home.png">
+
 ## License
 
 The license at [here](https://github.com/ruster-xyz/ruster/blob/master/LICENSE)
