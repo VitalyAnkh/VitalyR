@@ -68,7 +68,7 @@ impl Handler<SigninUser> for ConnDsl {
             Some(login_user) => {
                 match verify(&signin_user.password, &login_user.password) {
                     Ok(valid) => {
-                        if (signin_user.code == 0) || (signin_user.code == 1111) {
+                        if signin_user.code == 0 {
                             let user_id = login_user.id.to_string();
                             let token = token::generate_token(user_id).unwrap();
                             let the_user = User {
